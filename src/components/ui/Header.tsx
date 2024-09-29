@@ -1,28 +1,45 @@
-import { AppBar, Toolbar, Typography, Button, Container, Avatar } from "@mui/material";
-import Link from "next/link";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  List,
+  ListItemButton,
+  ListItemText,
+  Box,
+} from "@mui/material";
 
-const Header = () => (
-  <Container maxWidth="lg">
-    <AppBar position="static" color="inherit" sx={{ boxShadow: 0 }}>
+import { useAppContext } from "@/context/AppContext";
+
+const Header: React.FC = ({}) => {
+  const { handleClicHome, handleClicExperience, handleClicProject, handleClicContact } =
+    useAppContext();
+
+  return (
+    <AppBar
+      component="nav"
+      position="fixed"
+      color="transparent"
+      sx={{ boxShadow: 0 }}
+    >
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          LOGO
-        </Typography>
-        <Button color="inherit" component={Link} href="/">
-          Inicio
-        </Button>
-        <Button color="inherit" component={Link} href="/about">
-          Acerca de Mí
-        </Button>
-        <Button color="inherit" component={Link} href="/projects">
-          Proyectos
-        </Button>
-        <Button color="inherit" component={Link} href="/contact">
-          Contacto
-        </Button>
+        <Box display="flex" flexDirection="row">
+          <ListItemButton onClick={handleClicHome}>
+            <ListItemText>Inicio</ListItemText>
+          </ListItemButton>
+          <ListItemButton onClick={handleClicExperience}>
+            <ListItemText>Experiencia</ListItemText>
+          </ListItemButton>
+          <ListItemButton onClick={handleClicProject}>
+            <ListItemText>Proyectos</ListItemText>
+          </ListItemButton>
+          <ListItemButton onClick={handleClicContact}>
+            <ListItemText>Contacto</ListItemText>
+          </ListItemButton>
+        </Box>
       </Toolbar>
     </AppBar>
-  </Container>
-);
+  );
+};
 
 export default Header;

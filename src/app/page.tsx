@@ -1,21 +1,28 @@
-import { Box, Container, Divider } from "@mui/material";
-import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
-import SkillsSection from "@/components/sections/SkillsSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
-import ContactSection from "@/components/sections/ContactSection";
+"use client";
+import { Box, Container } from "@mui/material";
 
-export default function Home() {
+import HeroSection from "@/components/sections/Hero";
+import ProjectsSection from "@/components/sections/Projects";
+import ContactSection from "@/components/sections/Contact";
+import ExperienceSection from "@/components/sections/Experience";
+
+import { portfolio } from "@/data";
+
+const HomePage: React.FC = () => {
   return (
     <Box>
-      <HeroSection />
+      <HeroSection
+        welcome={portfolio.welcome}
+        title={portfolio.title}
+        subtitle={portfolio.subtitle}
+      />
       <Container maxWidth="lg">
-        <AboutSection />
-        <Divider />
-        <SkillsSection />
+        <ExperienceSection />
         <ProjectsSection />
         <ContactSection />
       </Container>
     </Box>
   );
-}
+};
+
+export default HomePage;

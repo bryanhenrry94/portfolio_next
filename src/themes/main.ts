@@ -1,18 +1,19 @@
 import { createTheme } from "@mui/material/styles";
-import { indigo } from "@mui/material/colors";
+import { teal } from "@mui/material/colors";
 
 import '@fontsource/roboto';
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
+    // fontFamily: 'Roboto, Arial, sans-serif',
+    fontFamily: 'Montserrat Variable, sans-serif',
   },
   palette: {
     primary: {
-      light: indigo[50],
-      dark: indigo[700],
+      light: teal[50],
+      dark: teal[700],
       contrastText: "#ffffff",
-      main: indigo[500],
+      main: teal[500],
     },
     secondary: {
       light: "#ff7961",
